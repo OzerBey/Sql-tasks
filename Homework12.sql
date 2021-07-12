@@ -32,7 +32,8 @@ SELECT COUNT(*) FROM film WHERE rental_rate = (SELECT MAX(rental_rate)FROM film)
  --4. payment tablosunda en fazla sayıda alışveriş yapan müşterileri(customer) sıralayınız.
 SELECT customer_id,COUNT(*) FROM payment GROUP BY customer_id ORDER BY COUNT(*) DESC;
 
- 
+ --with join operation
+SELECT customer.first_name,customer.last_name, COUNT(*) FROM payment INNER JOIN customer ON customer.customer_id=payment.customer_id GROUP BY customer.first_name, customer.last_name;
  
  
  
